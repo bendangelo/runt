@@ -3,7 +3,7 @@ require 'time'
 
 module CoreExtensions
   module TimePrecision
-    module ClassMethods
+    refine Time.singleton_class do
       def parse(*args)
         # wrap parse to set precision
         precision = if(args[0].instance_of?(Runt::DPrecision::Precision))
@@ -18,7 +18,7 @@ module CoreExtensions
       end
     end
 
-    module InstanceMethods
+    refine Time do
       attr_writer :date_precision
 
       def initialize(*args)
@@ -51,12 +51,8 @@ module CoreExtensions
       end
     end
 
-    refine Time do
-      prepend TimePrecision::InstanceMethods
-    end
+    
 
-    refine Time.singleton_class do
-      prepend TimePrecision::ClassMethods
-    end
+   
   end
 end
