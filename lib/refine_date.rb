@@ -34,8 +34,8 @@ module CoreExtensions
     #   prepend DatePrecision::ClassMethods
     # end
 
-    refine Date do
-      prepend DatePrecision::InstanceMethods
-    end
+    #refine Date do
+     # prepend DatePrecision::InstanceMethods
+    #end
   end
 end
