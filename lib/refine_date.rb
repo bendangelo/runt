@@ -8,8 +8,8 @@ module CoreExtensions
     # module ClassMethods
     # end
 
-    module InstanceMethods
-      # NOTE: PDateTest#test_include
+   refine Date do
+         # NOTE: PDateTest#test_include
       # alias_method :include?, :eql?
 
       attr_writer :date_precision
@@ -34,8 +34,6 @@ module CoreExtensions
     #   prepend DatePrecision::ClassMethods
     # end
 
-    #refine Date do
-     # prepend DatePrecision::InstanceMethods
-    #end
+    
   end
 end
