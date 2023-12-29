@@ -4,7 +4,7 @@ module CoreExtensions
     module ClassMethods
     end
 
-    module InstanceMethods
+    refine Numeric do
       def microseconds() Float(self  * (10 ** -6)) end unless self.instance_methods.include?('microseconds')
       def milliseconds() Float(self  * (10 ** -3)) end unless self.instance_methods.include?('milliseconds')
       def seconds() self end unless self.instance_methods.include?('seconds')
@@ -25,8 +25,7 @@ module CoreExtensions
     #   prepend NumericExtention::ClassMethods
     # end
 
-    refine Numeric do
-      prepend NumericExtention::InstanceMethods
+    
     end
   end
 end
